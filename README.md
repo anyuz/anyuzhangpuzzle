@@ -3,7 +3,7 @@
 ## Table of Contents
 1. [Understanding the puzzle](README.md#understanding-the-puzzle)
 2. [Bugs](README.md#bugs)
-3. [Fix processes](README.md#fix processes)
+3. [Fix](README.md#fix)
 4. [Refactoring](README.md#refactoring)
 
 
@@ -17,7 +17,7 @@ Imagine you're on an engineering team that is building an eCommerce site where u
 
 Unfortunately, the developer is new to many of these tools, and is having a number of issues. The developer needs your help debugging the system and getting it to work properly.
 
-# Fix processes
+# Fix
 
 The codebase included in this repo is nearly functional, but has a few bugs that are preventing it from working properly. The goal of this puzzle is to find these bugs and fix them. To do this, you'll have to familiarize yourself with the various technologies (Docker, nginx, Flask, and Postgres) enough to figure out  You definitely don't have to be an expert on these, but you should know them well enough to understand what the problem is.
 
