@@ -40,6 +40,78 @@ add "expose: 80"
 
 ----------------------------------------
 
+1. bug:  port error in docker-compose file
+
+process  tried to fix: 
+
+
+
+
+
+
+problem found:
+
+502 Bad Gateway
+
+nginx/1.13.5
+
+
+2. bug:  port error in app.py
+
+process  tried to fix:  change port 5000 to 5001 app.run(host='0.0.0.0',port=5001)
+
+
+
+
+Welcome!
+Please enter items that you would like to sell?
+name  quantity  description  
+
+
+
+
+problem found: 
+
+Internal Server Error
+The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+
+3. bug:  
+
+process  tried to fix:
+
+1. enable debug 
+
+if __name__ == '__main__':
+    app.debug = True
+
+sqlalchemy.exc.ProgrammingError
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) relation "items" does not exist
+LINE 1: INSERT INTO items (name, quantity, description, date_added) ...
+                    ^
+ [SQL: 'INSERT INTO items (name, quantity, description, date_added) VALUES (%(name)s, %(quantity)s, %(description)s, %(date_added)s) RETURNING items.id'] [parameters: {'name': 'anyu zhang', 'quantity': '1', 'description': 's', 'date_added': datetime.datetime(2018, 6, 12, 2, 13, 17, 707688)}] (Background on this error at: http://sqlalche.me/e/f405)
+
+
+2. docker-compose up -d db
+docker-compose run --rm flaskapp /bin/bash -c "cd /opt/services/flaskapp/src && python -c  'import database; database.init_db()'"
+
+This "bootstraps" the PostgreSQL database with the correct tables. After that you can run the whole system with:
+docker-compose up -d
+
+
+
+4. bug:   insert items but get return results like this  [, , , ]
+
+process  tried to fix:
+
+
+  
+http://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+
+
+
+
+
+
 
 ## Refactoring
 * Don't schedule your interview until you've worked on the puzzle 
