@@ -2,9 +2,9 @@
 
 ## Table of Contents
 1. [Understanding the puzzle](README.md#understanding-the-puzzle)
-2. [Bugs & Fix](README.md#bugs & fix)
+2. [Bugs and Fix](README.md#bugs & fix)
 3. [Refactoring](README.md#refactoring)
-4. [Summary of thoughts](README.md# summary of thoughts)
+4. [Summary of thoughts](README.md#summary of thoughts)
 
 
 # Understanding the puzzle
