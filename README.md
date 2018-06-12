@@ -7,11 +7,11 @@
 4. [Summary of thoughts](README.md#summary of thoughts)
 
 
-# Understanding the puzzle
+## Understanding the puzzle
 
 We highly recommend that you take a few dedicated minutes to read this README in its entirety before starting to think about potential solutions. You'll probably find it useful to review the codebase and understand the system at a high-level before attempting to find specific bugs.
 
-# Bugs & Fix
+## Bugs and Fix
 
 >> docker-compose up
 
