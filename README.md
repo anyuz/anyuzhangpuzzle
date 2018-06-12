@@ -13,6 +13,7 @@ We highly recommend that you take a few dedicated minutes to read this README in
 
 ## Bugs and Fix
 
+### Bugs1
 >> docker-compose up
 
 Starting systems-puzzle_db_1 ... done
@@ -30,6 +31,7 @@ Trial: turn off firewall (fail)
 Fix1: change ports: 80:8080 to 8080:80
 
 ----------------------------------------
+### Bugs2
 
 >> docker-compose up
 access localhost:8080 returns bad gateway error
@@ -40,42 +42,32 @@ add "expose: 80"
 
 ----------------------------------------
 
-1. bug:  port error in docker-compose file
-
-process  tried to fix: 
+### Bugs3
 
 
 
-
-
-
-problem found:
+>> docker-compose up
 
 502 Bad Gateway
 
 nginx/1.13.5
 
+This is a port error in app.py
+change port 5000 to 5001 app.run(host='0.0.0.0',port=5001)
 
-2. bug:  port error in app.py
+-------------------------------------------------------------
+### Bugs4
 
-process  tried to fix:  change port 5000 to 5001 app.run(host='0.0.0.0',port=5001)
-
-
-
+>> docker-compose up
 
 Welcome!
 Please enter items that you would like to sell?
 name  quantity  description  
 
-
-
-
 problem found: 
 
 Internal Server Error
 The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
-
-3. bug:  
 
 process  tried to fix:
 
@@ -98,31 +90,33 @@ This "bootstraps" the PostgreSQL database with the correct tables. After that yo
 docker-compose up -d
 
 
+-----------------------------------------------------------------
+### Bugs5
 
-4. bug:   insert items but get return results like this  [, , , ]
+>> docker-compose up
+
+insert items but get return results like this  [, , , ], no data show on the page.
 
 process  tried to fix:
-
-
   
 http://docs.sqlalchemy.org/en/latest/orm/tutorial.html
-
-
-
+Add:
+def __repr__(self):
+    	return "(id='%d',name='%s',quantity='%d',description='%s',date_added='%s')" % (
+    		self.id, self.name, self.quantity, self.description, self.date_added)
+to Models.py Class Items
+to make data visiable on the page.
 
 
 
 
 ## Refactoring
-* Don't schedule your interview until you've worked on the puzzle 
-* To submit your entry please use the link you received in your systems puzzle invitation
-* You will only be able to submit through the link one time
-* For security, we will not open solutions submitted via files
-* Use the submission box to enter the link to your GitHub repo or Bitbucket ONLY
-* Link to the specific repo for this project, not your general profile
-* Put any comments in the README inside your project repo
+add check item functions
+
 
 ## Summary of thoughts
 
-
+1.
+2.
+3
 
