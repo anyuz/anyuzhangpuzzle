@@ -101,22 +101,17 @@ process  tried to fix:
   
 http://docs.sqlalchemy.org/en/latest/orm/tutorial.html
 Add:
+
 def __repr__(self):
     	return "(id='%d',name='%s',quantity='%d',description='%s',date_added='%s')" % (
     		self.id, self.name, self.quantity, self.description, self.date_added)
 to Models.py Class Items
+
 to make data visiable on the page.
-
-
 
 
 ## Refactoring
 add check item functions
-
-
+comming soon...
 ## Summary of thoughts
-
-1.
-2.
-3
-
+comming soon...
