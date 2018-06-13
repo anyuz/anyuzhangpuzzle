@@ -93,15 +93,15 @@ docker-compose up -d
 -----------------------------------------------------------------
 ### Bugs5
 
->> docker-compose up
+>> docker-compose up -d
 
 insert items but get return results like this  [, , , ], no data show on the page.
+Then I check the files like app.py , forms.py, models.py.
+I found there is no representative in models.py for class Items, so when try to return str(results), nothing showed on the page.
 
-process  tried to fix:
-  
 http://docs.sqlalchemy.org/en/latest/orm/tutorial.html
-Add:
 
+Add:
 def __repr__(self):
     	return "(id='%d',name='%s',quantity='%d',description='%s',date_added='%s')" % (
     		self.id, self.name, self.quantity, self.description, self.date_added)
