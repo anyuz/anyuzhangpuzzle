@@ -47,7 +47,13 @@ However, the docker service log reads
 ```
 flaskapp_1  | * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ```
-Bad gateway error is a proxy error and flaskapp should be serviced through port 5001 instead of 5000. Changing `app.py` and I get the correct index.html page. After entering one test entry and click submit, the browser redirects me to success page with `[]` as output. After the second entry, it returns `[,]`. Nothing is printed out. Checking the `app.py`, 
+Bad gateway error is a proxy error and flaskapp should be serviced through port 5001 instead of 5000. 
+There are python files running in flaskapp container. After checking all of them, I found in app.py:
+
+	if __name__ == '__main__':
+    		app.run(host='0.0.0.0')
+    	
+Changing `app.py` and I get the correct index.html page. After entering one test entry and click submit, the browser redirects me to success page with `[]` as output. After the second entry, it returns `[,]`. Nothing is printed out. Checking the `app.py`, 
 ```
 @app.route("/success")
 def success():
