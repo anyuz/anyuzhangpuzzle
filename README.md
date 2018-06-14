@@ -116,8 +116,9 @@ to make data visiable on the page.
 ## Refactoring
 From the details of this project, I know this is a simple system to buy and sell product.
 Now, the basic functionality is done. 
-Then I add some more ways to read and write data.
->> read all items in database
+Then add more ways to read and write data.
+>> Read all items in database
+ Add route "/allitems " with methods=('GET') in app.py. Type: 'localhost:8080/allitems' can return all items in database.
 
 ![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.48.47%20AM.png)
 
