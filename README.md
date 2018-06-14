@@ -27,18 +27,18 @@ ERROR: for nginx  Cannot start service nginx: driver failed programming external
 
 ERROR: Encountered errors while bringing up the project.
 
-    Analyze Bug1:
+#### Analyze Bug1:
 
 
 
 
-why want to trun off firewall?
+
 
 
 #### Fix1: turn off firewall (fail)
 
 
-why want to check port number?
+
 
 -->port 80 on host is used
 
@@ -52,7 +52,7 @@ why want to check port number?
         
 access localhost:8080 returns bad gateway error
 
-    Analyze the Bug2:
+#### Analyze the Bug2:
     
 "Containers connected to the same user-defined bridge network automatically expose all ports to each other, and no ports to the outside world. "
 
@@ -72,7 +72,7 @@ But return the other error:
 
 nginx/1.13.5
 
-    Analyze of Bug3: 
+#### Analyze of Bug3: 
 
 This is a port error in app.py
 #### Fix: change port 5000 to 5001 app.run(host='0.0.0.0',port=5001)
@@ -91,12 +91,12 @@ After enter the name, quantity, description and click enter button, I got the fo
     Internal Server Error
     The server encountered an internal error and was unable to complete your request. Either the server is overloaded or    there is an error in the application.
 
-    Analyze Bug4:
+#### Analyze Bug4:
 
 
 #### Fix1. enable debug 
 
-if __name__ == '__main__':
+    if __name__ == '__main__':
     app.debug = True
 
 
@@ -109,7 +109,8 @@ LINE 1: INSERT INTO items (name, quantity, description, date_added) ...
 
 #### Fix2. reread the details in the system puzzle readme file
 
-I found the codes: 
+I found the codes:
+
     docker-compose up -d db
     docker-compose run --rm flaskapp /bin/bash -c "cd /opt/services/flaskapp/src && python -c  'import database; database.init_db()'"
 
@@ -134,7 +135,8 @@ http://docs.sqlalchemy.org/en/latest/orm/tutorial.html
 
 #### Fix: 
 Add
-def __repr__(self):
+
+    def __repr__(self):
     	return "(id='%d',name='%s',quantity='%d',description='%s',date_added='%s')" % (
     		self.id, self.name, self.quantity, self.description, self.date_added)
 to Models.py Class Items
@@ -159,23 +161,24 @@ Then add more ways to read and write data.
 
 ## Find a specific item by name
 
-    Method 1. 
+ ### Method 1. 
         1. Add route "/query" with methods=('GET', 'POST') in app.py 
         2. Create query html page file same like index.html file to get item name.
 
 ![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.52.37%20PM.png)
 
-    Method 2. Add route "/items/<item name> " with methods=('GET') in app.py. Type: 'localhost:8080/items/<item name>' can return all items in database.
+### Method 2.
+Add route "/items/<item name> " with methods=('GET') in app.py. Type: 'localhost:8080/items/<item name>' can return all items in database.
 
 ![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.51.47%20AM.png)
 
 
 ## Delete some items in database
 
-    1. Add route "/delete " with methods=('GET','POST') in app.py. 
+1. Add route "/delete " with methods=('GET','POST') in app.py. 
 delete items by given name: db_session.query(Items).filter_by(name = form.name.data).delete(synchronize_session=False)
 
-    2. Create delete html page file same like index.html file.
+2. Create delete html page file same like index.html file.
 
 But here, we only need to enter the name of items that want to delete. Type: 'localhost:8080/delete' then enter the items name you want to delete, it will return all items in database after deleting given items.
 
