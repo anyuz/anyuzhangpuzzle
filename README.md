@@ -92,9 +92,9 @@ Then add more ways to read and write data.
 
 ## Find a specific item by name
 
- ### Method 1. 
-        1. Add route "/query" with methods=('GET', 'POST') in app.py 
-        2. Create query html page file same like index.html file to get item name.
+### Method 1. 
+#### 1. Add route "/query" with methods=('GET', 'POST') in app.py 
+#### 2. Create query html page file same like index.html file to get item name.
 
 ![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.52.37%20PM.png)
 
