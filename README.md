@@ -39,6 +39,9 @@ I first tried to turn off the firewall on mac but that doesn't help solve the pr
 ```
 docker run --name test-nginx -p 8080:80 nginx
 ```
+
+![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%203.35.44%20AM.png)
+
 This returns a welcome page on `localhost:8080`, which means that docker is installed correctly and the error must come from the nginx configuration. I found that nginx depends_on: flaskapp. then I checked the `conf.d/flaskapp.conf`
 ```
 proxy_pass http://flaskapp:5001;
