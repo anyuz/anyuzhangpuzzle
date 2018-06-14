@@ -58,7 +58,14 @@ Changing `app.py`
 	if __name__ == '__main__':
 		app.run(host='0.0.0.0',port=5001)
 
-and I get the correct index.html page. After entering one test entry and click submit, the browser redirects me to success page with `[]` as output. After the second entry, it returns `[,]`. Nothing is printed out. Checking the `app.py`, 
+and I get the correct index.html page. By making port correct the app.py make:
+
+	app.secret_key = os.environ['APP_SECRET_KEY'] 
+	
+the problem of proxy solved.
+
+
+After entering one test entry and click submit, the browser redirects me to success page with `[]` as output. After the second entry, it returns `[,]`. Nothing is printed out. Checking the `app.py`, 
 ```
 @app.route("/success")
 def success():
