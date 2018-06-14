@@ -114,7 +114,9 @@ to make data visiable on the page.
 
 
 ## Refactoring
-add check item functions
-comming soon...
+From the details of this project, I know this is a simple system to buy and sell product.
+Now, the basic functionality is done. 
+
+
 ## Summary of thoughts
 comming soon...
