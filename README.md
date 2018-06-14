@@ -61,7 +61,7 @@ Changing `app.py`
 	if __name__ == '__main__':
 		app.run(host='0.0.0.0',port=5001)
 
-and I get the correct index.html page. By making port correct the app.py make:
+and I get the correct index.html page. By making port correct, the app.py sets:
 
 	app.secret_key = os.environ['APP_SECRET_KEY'] 
 	
