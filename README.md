@@ -112,6 +112,11 @@ to Models.py Class Items
 
 to make data visiable on the page.
 
+![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.48.25%20AM.png)
+![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.48.32%20AM.png)
+
+
+
 
 ## Refactoring
 From the details of this project, I know this is a simple system to buy and sell product.
@@ -119,18 +124,35 @@ Now, the basic functionality is done.
 Then add more ways to read and write data.
 >> Read all items in database
 
-Add route "/allitems " with methods=('GET') in app.py. Type: 'localhost:8080/allitems' can return all items in database.
+    Add route "/allitems " with methods=('GET') in app.py. Type: 'localhost:8080/allitems' can return all items in database.
 ![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.48.47%20AM.png)
+
+
+>> Find a specific item by name
+
+    Method 1. 
+        1. Add route "/query" with methods=('GET', 'POST') in app.py 
+        2. Create query html page file same like index.html file to get item name.
+
+![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.52.37%20PM.png)
+
+    Method 2. Add route "/items/<item name> " with methods=('GET') in app.py. Type: 'localhost:8080/items/<item name>' can return all items in database.
+
+![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.51.47%20AM.png)
 
 
 >> Delete some items in database
 
-1. Add route "/allitems " with methods=('GET') in app.py. 
-2. Create delete html page file same like index.html file.
+    1. Add route "/delete " with methods=('GET','POST') in app.py. 
+delete items by given name: db_session.query(Items).filter_by(name = form.name.data).delete(synchronize_session=False)
+
+    2. Create delete html page file same like index.html file.
 
 But here, we only need to enter the name of items that want to delete. Type: 'localhost:8080/delete' then enter the items name you want to delete, it will return all items in database after deleting given items.
 
-![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.48.59%20AM.png)
+![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.49.10%20AM.png)
+
+![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.49.19%20AM.png)
 
 
 
