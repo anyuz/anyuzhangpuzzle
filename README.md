@@ -134,3 +134,8 @@ But here, we only need to enter the name of items that want to delete. Type: 'lo
 ![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.49.10%20AM.png)
 
 ![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.49.19%20AM.png)
+
+If 
+
+![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.49.52%20AM.png)
+
