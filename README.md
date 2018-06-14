@@ -107,7 +107,7 @@ Add route "/items/<item name> " with methods=('GET') in app.py. Type: 'localhost
 ## Delete some items in database
 
 1. Add route "/delete " with methods=('GET','POST') in app.py. 
-delete items by given name: 
+delete items by given name:
 	
 	db_session.query(Items).filter_by(name = form.name.data).delete(synchronize_session=False)
 
