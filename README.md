@@ -120,8 +120,8 @@ Then add more ways to read and write data.
 >> Read all items in database
 
 Add route "/allitems " with methods=('GET') in app.py. Type: 'localhost:8080/allitems' can return all items in database.
+![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.48.47%20AM.png)
 
-![alt text](anyuzhangpuzzle/Screen Shot 2018-06-13 at 11.48.59 AM.png)
 
 >> Delete some items in database
 
@@ -130,7 +130,7 @@ Add route "/allitems " with methods=('GET') in app.py. Type: 'localhost:8080/all
 
 But here, we only need to enter the name of items that want to delete. Type: 'localhost:8080/delete' then enter the items name you want to delete, it will return all items in database after deleting given items.
 
-![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.48.47%20AM.png)
+![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.48.59%20AM.png)
 
 
 
