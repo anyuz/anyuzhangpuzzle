@@ -79,7 +79,8 @@ Class `Items` inherits from `Base`. Both of them have no representations to conv
 Reading the flask tutorial and mimic the codes in `app.py`. I added several other features to improve the system.
 
 
-# Refactoring
+# Web API Examples
+
 From the details of this project, I know this is a simple system to buy and sell product.
 Now, the basic functionality is done. 
 Then add more ways to read and write data.
