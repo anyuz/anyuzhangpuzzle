@@ -6,15 +6,16 @@
 3. [Refactoring](README.md#refactoring)
 4. [Summary of thoughts](README.md#summary-of-thoughts)
 
-
 ## Understanding the puzzle
-
-comming soon...
 
 ## Bugs and Fix
 
 ### Bugs1
->> docker-compose up
+
+Based on the docker command, first I try to run the puzzle: 
+
+    docker-compose up
+
 
 Starting systems-puzzle_db_1 ... done
 Starting systems-puzzle_flaskapp_1 ... done
@@ -26,58 +27,78 @@ ERROR: for nginx  Cannot start service nginx: driver failed programming external
 
 ERROR: Encountered errors while bringing up the project.
 
-Trial: turn off firewall (fail)
+    Analyze Bug1:
+
+
+
+
+why want to trun off firewall?
+
+
+#### Fix1: turn off firewall (fail)
+
+
+why want to check port number?
 
 -->port 80 on host is used
 
-Fix1: change ports: 80:8080 to 8080:80
+#### Fix2: change ports: 80:8080 to 8080:80 (work)
+
 
 ----------------------------------------
 ### Bugs2
 
->> docker-compose up
+    docker-compose up
+        
 access localhost:8080 returns bad gateway error
 
+    Analyze the Bug2:
+    
 "Containers connected to the same user-defined bridge network automatically expose all ports to each other, and no ports to the outside world. "
 
-Fix: add "expose: 80"
+#### Fix: add "expose: 80" (work)
+
+But return the other error:
+
 ---> can access but not configured correctly
 
 ----------------------------------------
 
 ### Bugs3
 
-
-
->> docker-compose up
+    docker-compose up
 
 502 Bad Gateway
 
 nginx/1.13.5
 
+    Analyze of Bug3: 
+
 This is a port error in app.py
-change port 5000 to 5001 app.run(host='0.0.0.0',port=5001)
+#### Fix: change port 5000 to 5001 app.run(host='0.0.0.0',port=5001)
 
 -------------------------------------------------------------
 ### Bugs4
 
->> docker-compose up
+    docker-compose up
 
-Welcome!
-Please enter items that you would like to sell?
-name  quantity  description  
+    Welcome!
+    Please enter items that you would like to sell?
+    name  quantity  description  
 
-problem found: 
+After enter the name, quantity, description and click enter button, I got the fourth bug:
 
-Internal Server Error
-The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+    Internal Server Error
+    The server encountered an internal error and was unable to complete your request. Either the server is overloaded or    there is an error in the application.
 
-process  tried to fix:
+    Analyze Bug4:
 
-1. enable debug 
+
+#### Fix1. enable debug 
 
 if __name__ == '__main__':
     app.debug = True
+
 
 sqlalchemy.exc.ProgrammingError
 sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) relation "items" does not exist
@@ -86,25 +107,33 @@ LINE 1: INSERT INTO items (name, quantity, description, date_added) ...
  [SQL: 'INSERT INTO items (name, quantity, description, date_added) VALUES (%(name)s, %(quantity)s, %(description)s, %(date_added)s) RETURNING items.id'] [parameters: {'name': 'anyu zhang', 'quantity': '1', 'description': 's', 'date_added': datetime.datetime(2018, 6, 12, 2, 13, 17, 707688)}] (Background on this error at: http://sqlalche.me/e/f405)
 
 
-2. docker-compose up -d db
-docker-compose run --rm flaskapp /bin/bash -c "cd /opt/services/flaskapp/src && python -c  'import database; database.init_db()'"
+#### Fix2. reread the details in the system puzzle readme file
 
-This "bootstraps" the PostgreSQL database with the correct tables. After that you can run the whole system with:
-docker-compose up -d
+I found the codes: 
+    docker-compose up -d db
+    docker-compose run --rm flaskapp /bin/bash -c "cd /opt/services/flaskapp/src && python -c  'import database; database.init_db()'"
+
+This "bootstraps" the PostgreSQL database with the correct tables. I can run the whole system with:
+docker-compose up -d only after that.
 
 
 -----------------------------------------------------------------
 ### Bugs5
 
->> docker-compose up -d
+    docker-compose up -d
 
 insert items but get return results like this  [, , , ], no data show on the page.
+
 Then I check the files like app.py , forms.py, models.py.
 I found there is no representative in models.py for class Items, so when try to return str(results), nothing showed on the page.
 
 http://docs.sqlalchemy.org/en/latest/orm/tutorial.html
 
-Add:
+    Analyze Bug5:
+    
+
+#### Fix: 
+Add
 def __repr__(self):
     	return "(id='%d',name='%s',quantity='%d',description='%s',date_added='%s')" % (
     		self.id, self.name, self.quantity, self.description, self.date_added)
@@ -118,17 +147,17 @@ to make data visiable on the page.
 
 
 
-## Refactoring
+# Refactoring
 From the details of this project, I know this is a simple system to buy and sell product.
 Now, the basic functionality is done. 
 Then add more ways to read and write data.
->> Read all items in database
+## Read all items in database
 
     Add route "/allitems " with methods=('GET') in app.py. Type: 'localhost:8080/allitems' can return all items in database.
 ![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.48.47%20AM.png)
 
 
->> Find a specific item by name
+## Find a specific item by name
 
     Method 1. 
         1. Add route "/query" with methods=('GET', 'POST') in app.py 
@@ -141,7 +170,7 @@ Then add more ways to read and write data.
 ![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.51.47%20AM.png)
 
 
->> Delete some items in database
+## Delete some items in database
 
     1. Add route "/delete " with methods=('GET','POST') in app.py. 
 delete items by given name: db_session.query(Items).filter_by(name = form.name.data).delete(synchronize_session=False)
