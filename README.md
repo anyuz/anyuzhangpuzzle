@@ -65,6 +65,9 @@ and I get the correct index.html page. By making port correct the app.py make:
 the problem of proxy solved.
 
 
+![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.48.25%20AM.png)
+
+
 After entering one test entry and click submit, the browser redirects me to success page with `[]` as output. After the second entry, it returns `[,]`. Nothing is printed out. Checking the `app.py`, 
 ```
 @app.route("/success")
