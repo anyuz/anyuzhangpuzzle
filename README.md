@@ -10,7 +10,7 @@
 
 ## Bugs and Fix
 
-### Bugs1
+### Bug1
 
 Based on the docker command, first I try to run the puzzle: 
 
@@ -46,7 +46,7 @@ ERROR: Encountered errors while bringing up the project.
 
 
 ----------------------------------------
-### Bugs2
+### Bug2
 
     docker-compose up
         
@@ -64,7 +64,7 @@ But return the other error:
 
 ----------------------------------------
 
-### Bugs3
+### Bug3
 
     docker-compose up
 
@@ -78,7 +78,7 @@ This is a port error in app.py
 #### Fix: change port 5000 to 5001 app.run(host='0.0.0.0',port=5001)
 
 -------------------------------------------------------------
-### Bugs4
+### Bug4
 
     docker-compose up
 
@@ -119,7 +119,7 @@ docker-compose up -d only after that.
 
 
 -----------------------------------------------------------------
-### Bugs5
+### Bug5
 
     docker-compose up -d
 
