@@ -24,11 +24,14 @@ This repository corrects the manually added bugs in code provided by [system-puz
 Following the commands above, database is initialized without error message and nginx service is starting. However, access to localhost:8080 gives 
 > This site can't be reached
 >
-That leads me to check docker-compose.yml since nginx is not deployed correction on 8080 port. 
+That leads me to check docker-compose.yml 
+
+I nginx is not deployed correction on 8080 port. 
 >ports:
       - "80:8080"
->
-Checking the syntax manual of docker-compose tells me that the first port is for host and second is for container. This is typo and the order should be flipped. Correcting the typo gives me 
+since checking the syntax manual of docker-compose tells me that the first port is for host and second is for container. 
+
+This is typo and the order should be flipped. Correcting the typo gives me 
 > 502 Bad Gateway
 > nginx/1.13.5
 >
