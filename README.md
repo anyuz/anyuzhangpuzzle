@@ -106,12 +106,10 @@ Add route "/items/<item name> " with methods=('GET') in app.py. Type: 'localhost
 
 ## Delete some items in database
 
-1. Add route "/delete " with methods=('GET','POST') in app.py. 
-delete items by given name:
-	
+#### 1. Add route "/delete " with methods=('GET','POST') in app.py. delete items by given name:
 	db_session.query(Items).filter_by(name = form.name.data).delete(synchronize_session=False)
 
-2. Create delete html page file same like index.html file.
+#### 2. Create delete html page file same like index.html file.
 
 But here, we only need to enter the name of items that want to delete. Type: 'localhost:8080/delete' then enter the items name you want to delete, it will return all items in database after deleting given items.
 
