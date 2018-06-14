@@ -121,6 +121,11 @@ Add route "/items/<item name> " with methods=('GET') in app.py. Type: 'localhost
 
 ![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.51.47%20AM.png)
 
+If the item you want to find is not in the system, It will return error page.
+
+![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.49.52%20AM.png)
+
+
 
 ## Delete some items in database
 
@@ -135,7 +140,4 @@ But here, we only need to enter the name of items that want to delete. Type: 'lo
 
 ![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.49.19%20AM.png)
 
-If 
-
-![alt text](https://github.com/anyuz/anyuzhangpuzzle/blob/master/Screen%20Shot%202018-06-13%20at%2011.49.52%20AM.png)
 
